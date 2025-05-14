@@ -1,11 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,28 +22,45 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Determine text color based on page and scroll state
+  const getTextColor = () => {
+    if (scrolled) {
+      return 'text-skyliving-700';  // Dark text when navbar has background
+    } else {
+      return isHomePage ? 'text-white' : 'text-skyliving-700'; // White on home, dark on other pages
+    }
+  };
+
+  const getLinkColor = () => {
+    if (scrolled) {
+      return 'text-skyliving-800 hover:text-skyliving-900';
+    } else {
+      return isHomePage ? 'text-white hover:text-white/80' : 'text-skyliving-800 hover:text-skyliving-900';
+    }
+  };
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-md py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-md py-2' : isHomePage ? 'bg-transparent py-4' : 'bg-white py-4 shadow-sm'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <span className={`text-3xl font-heading font-bold transition-colors duration-300 ${scrolled ? 'text-skyliving-700' : 'text-white'}`}>THE SKY LIVING</span>
+              <span className={`text-3xl font-heading font-bold transition-colors duration-300 ${getTextColor()}`}>THE SKY LIVING</span>
             </Link>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-10">
-              <Link to="/" className={`font-medium transition-colors ${scrolled ? 'text-skyliving-800 hover:text-skyliving-900' : 'text-white hover:text-white/80'}`}>Home</Link>
-              <Link to="/about" className={`font-medium transition-colors ${scrolled ? 'text-skyliving-800 hover:text-skyliving-900' : 'text-white hover:text-white/80'}`}>About Us</Link>
-              <Link to="/accommodations" className={`font-medium transition-colors ${scrolled ? 'text-skyliving-800 hover:text-skyliving-900' : 'text-white hover:text-white/80'}`}>PG/Hostel</Link>
-              <Link to="/gallery" className={`font-medium transition-colors ${scrolled ? 'text-skyliving-800 hover:text-skyliving-900' : 'text-white hover:text-white/80'}`}>Gallery</Link>
-              <Link to="/contact" className={`font-medium transition-all px-6 py-2.5 rounded-full shadow-md ${scrolled ? 'bg-skyliving-600 text-white hover:bg-skyliving-700' : 'bg-white text-skyliving-700 hover:bg-white/90'}`}>Contact Us</Link>
+              <Link to="/" className={`font-medium transition-colors ${getLinkColor()}`}>Home</Link>
+              <Link to="/about" className={`font-medium transition-colors ${getLinkColor()}`}>About Us</Link>
+              <Link to="/accommodations" className={`font-medium transition-colors ${getLinkColor()}`}>PG/Hostel</Link>
+              <Link to="/gallery" className={`font-medium transition-colors ${getLinkColor()}`}>Gallery</Link>
+              <Link to="/contact" className={`font-medium transition-all px-6 py-2.5 rounded-full shadow-md ${scrolled ? 'bg-skyliving-600 text-white hover:bg-skyliving-700' : isHomePage ? 'bg-white text-skyliving-700 hover:bg-white/90' : 'bg-skyliving-600 text-white hover:bg-skyliving-700'}`}>Contact Us</Link>
             </div>
           </div>
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors ${scrolled ? 'text-skyliving-800 hover:bg-gray-100' : 'text-white hover:bg-white/10'}`}
+              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors ${scrolled ? 'text-skyliving-800 hover:bg-gray-100' : isHomePage ? 'text-white hover:bg-white/10' : 'text-skyliving-800 hover:bg-gray-100'}`}
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>

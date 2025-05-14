@@ -100,6 +100,7 @@
   }
 }
 
+/* Section styling */
 .section-heading {
   @apply text-4xl md:text-5xl font-heading font-bold text-skyliving-700 mb-8 text-center;
 }
@@ -123,6 +124,25 @@
 
 .page-hero-title {
   @apply text-5xl font-bold text-white mb-6 font-heading drop-shadow-lg;
+}
+
+/* Page hero styling with better visibility */
+.page-hero-content {
+  @apply relative z-10;
+}
+
+.page-hero-overlay {
+  @apply absolute inset-0 bg-skyliving-800 opacity-80;
+}
+
+.page-hero-title {
+  @apply text-white text-5xl font-bold font-heading drop-shadow-xl mb-4;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.page-hero-subtitle {
+  @apply text-white text-xl max-w-3xl mx-auto opacity-90 drop-shadow-lg;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 /* Modern UI improvements */

@@ -10,11 +10,12 @@ const AboutUs = () => {
   return (
     <div className="pt-20">
       {/* About Hero Section */}
-      <section className="page-hero">
-        <div className="absolute inset-0 bg-skyliving-800 opacity-90 z-0"></div>
+      <section className="relative py-24 bg-skyliving-800">
+        <div className="page-hero-overlay"></div>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mix-blend-overlay z-[-1]"></div>
-        <div className="container mx-auto px-4 z-10 text-center">
+        <div className="container mx-auto px-4 z-10 text-center page-hero-content">
           <h1 className="page-hero-title">ABOUT US</h1>
+          <p className="page-hero-subtitle">Discover our story and what makes us different</p>
         </div>
       </section>
 
