@@ -8,42 +8,36 @@ const hostelData = [
     name: "SKY BOYS PG/HOSTEL",
     image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3",
     description: "Modern accommodations designed for student comfort",
-    link: "/accommodations/sky-boys"
   },
   {
     id: 2,
     name: "SHIV KEDAR BOYS PG/HOSTEL",
     image: "https://images.unsplash.com/photo-1623625434462-e5e42318ae49?ixlib=rb-4.0.3",
     description: "Serene environment with premium facilities",
-    link: "/accommodations/shiv-kedar"
   },
   {
     id: 3,
     name: "AKARIA HOUSE",
     image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3",
     description: "Luxury living with all modern amenities",
-    link: "/accommodations/akaria-house"
   },
   {
     id: 4,
     name: "DREAM HOUSE BOYS PG/HOSTEL",
     image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3",
     description: "A home away from home for students",
-    link: "/accommodations/dream-house"
   },
   {
     id: 5,
     name: "SHIV SHANKAR BOYS PG/HOSTEL",
     image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-4.0.3",
     description: "Contemporary spaces with traditional values",
-    link: "/accommodations/shiv-shankar"
   },
   {
     id: 6,
     name: "PARVATI HOUSE",
     image: "https://images.unsplash.com/photo-1560185008-a9a0bb5cdfb5?ixlib=rb-4.0.3",
     description: "Premium accommodations in prime location",
-    link: "/accommodations/parvati-house"
   }
 ];
 
@@ -60,7 +54,7 @@ const Hostels = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {hostelData.map((hostel) => (
             <Link 
-              to={hostel.link} 
+              to={`/accommodations/${hostel.id}`} 
               key={hostel.id}
               className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
