@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 
 // Sample gallery categories and images
@@ -114,7 +113,7 @@ const Gallery = () => {
         <div className="container mx-auto px-4">
           {/* Category Tabs */}
           <div className="flex justify-center mb-12">
-            <div className="inline-flex rounded-md shadow-sm" role="group">
+            <div className="inline-flex rounded-md overflow-hidden shadow-md" role="group">
               {Object.keys(galleryData).map((category) => (
                 <button
                   key={category}
@@ -123,12 +122,6 @@ const Gallery = () => {
                     activeCategory === category
                       ? "bg-skyliving-700 text-white"
                       : "bg-white text-skyliving-700 hover:bg-skyliving-50"
-                  } ${
-                    category === "accommodations" 
-                      ? "rounded-l-lg" 
-                      : category === "events" 
-                      ? "rounded-r-lg" 
-                      : ""
                   }`}
                   onClick={() => setActiveCategory(category)}
                 >
@@ -139,19 +132,22 @@ const Gallery = () => {
           </div>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {galleryData[activeCategory].map((image) => (
               <div 
                 key={image.id} 
-                className="overflow-hidden rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow"
+                className="group overflow-hidden rounded-xl shadow-md cursor-pointer hover:shadow-xl transition-all duration-300 bg-white"
                 onClick={() => handleImageClick(image)}
               >
-                <div className="aspect-[4/3]">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img 
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                   />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-medium text-skyliving-700">{image.alt}</h3>
                 </div>
               </div>
             ))}
@@ -161,8 +157,8 @@ const Gallery = () => {
 
       {/* Image Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
-          <div className="max-w-4xl w-full bg-white rounded-lg overflow-hidden">
+        <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+          <div className="max-w-4xl w-full bg-white rounded-xl overflow-hidden shadow-2xl">
             <div className="relative">
               <img 
                 src={selectedImage.src} 
@@ -170,7 +166,7 @@ const Gallery = () => {
                 className="w-full h-auto"
               />
               <button 
-                className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg"
+                className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition"
                 onClick={closeModal}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -178,7 +174,7 @@ const Gallery = () => {
                 </svg>
               </button>
             </div>
-            <div className="p-4">
+            <div className="p-6">
               <h3 className="text-xl font-semibold text-skyliving-700">{selectedImage.alt}</h3>
             </div>
           </div>

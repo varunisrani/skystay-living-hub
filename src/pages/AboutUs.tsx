@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 
 const AboutUs = () => {
@@ -24,16 +23,16 @@ const AboutUs = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-skyliving-500 text-xl font-medium mb-2">OUR STORY</h2>
-              <h3 className="text-4xl font-bold text-skyliving-700 font-heading">A BRIEF HISTORY OF SKYLIVING</h3>
+              <span className="inline-block px-4 py-2 rounded-full bg-skyliving-100 text-skyliving-700 text-sm font-medium mb-3">OUR STORY</span>
+              <h2 className="text-4xl font-bold text-skyliving-700 font-heading">A BRIEF HISTORY OF SKYLIVING</h2>
             </div>
             <div className="prose prose-lg max-w-none">
-              <p>
+              <p className="text-lg text-gray-600 leading-relaxed">
                 The concept of THE SKY LIVING was started by two young entrepreneurs since last 6 years. 
                 In the beginning we have just started with 12 Students but now we are proudly manage over 
                 900 students across our 6 PG/Hostels.
               </p>
-              <p>
+              <p className="text-lg text-gray-600 leading-relaxed">
                 As time passes we grown in business with an aim to give our residing client/students a feel
                 of home away from home.
               </p>
@@ -43,29 +42,25 @@ const AboutUs = () => {
       </section>
 
       {/* What is TSL Section */}
-      <section className="py-20 bg-gray-100">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-skyliving-700 mb-8 text-center font-heading">What is TSL?</h2>
             <div className="prose prose-lg max-w-none">
-              <p>
+              <p className="text-lg text-gray-600 leading-relaxed">
                 A LUXURY Living Experience Beyond The ordinary. TSL is a Once in a Lifetime living Experience For 
                 Student and Working Professionals. A community for the Modern Age Designed for You to BE YOU. 
                 From Unbeatable Interior and Top-Notch Locations.
               </p>
-              <p>
+              <p className="text-lg text-gray-600 leading-relaxed">
                 Our Co-Living and Hostels have a Culture so Strong. You'd Never want to Leave. Here's life is Vibrant 
                 as people from different part of the state and country to live here. The Diverse ideologies and communal 
                 Sense of being together make an individual Grow in all aspect of life. It Decent and Pocket Friendly PG 
                 Rooms that Provide you with Both Basic and Luxurious Amenities.
               </p>
-              <p>
+              <p className="text-lg text-gray-600 leading-relaxed">
                 The name The Sky Living Itself suggest comfort with quality Living. Your Comfort is our concern, hence 
-                every Facility And amenities we provide, is to ensure that it feels like home. We have extensive range 
-                of shared PG accommodation -TSL, TSL-1, TSL-2, TSL-3, TSL-5 & TSL-6 namely The Sky Living, Shiv Kedar, 
-                Shiv Shankar, SKY, Rajhans and Dream House is designed as PG for Boys. Moreover TSL-4 namely Geeta 
-                Residency is PG for Girls. It is equipped with premium 15+ amenities and 250 luxurious rooms. Being 
-                the best PG in Ahmedabad our duty is to provide a safe, covid free Living all the time.
+                every Facility And amenities we provide, is to ensure that it feels like home.
               </p>
             </div>
           </div>
