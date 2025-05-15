@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 
 const AboutUs = () => {
@@ -9,12 +10,14 @@ const AboutUs = () => {
   return (
     <div className="pt-20">
       {/* About Hero Section */}
-      <section className="relative py-24 bg-skyliving-800">
+      <section className="relative py-24 bg-white">
         <div className="page-hero-overlay"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mix-blend-overlay z-[-1]"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mix-blend-overlay opacity-10 z-[-1]"></div>
         <div className="container mx-auto px-4 z-10 text-center page-hero-content">
-          <h1 className="page-hero-title">ABOUT US</h1>
-          <p className="page-hero-subtitle">Discover our story and what makes us different</p>
+          <h1 className="page-hero-title text-gradient">ABOUT US</h1>
+          <p className="page-hero-subtitle">
+            Discover our story and what makes us different
+          </p>
         </div>
       </section>
 
@@ -24,7 +27,7 @@ const AboutUs = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
               <span className="inline-block px-4 py-2 rounded-full bg-skyliving-100 text-skyliving-700 text-sm font-medium mb-3">OUR STORY</span>
-              <h2 className="text-4xl font-bold text-skyliving-700 font-heading">A BRIEF HISTORY OF SKYLIVING</h2>
+              <h2 className="text-4xl font-bold text-gradient font-heading">A BRIEF HISTORY OF SKYLIVING</h2>
             </div>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-gray-600 leading-relaxed">
@@ -45,7 +48,7 @@ const AboutUs = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-skyliving-700 mb-8 text-center font-heading">What is TSL?</h2>
+            <h2 className="text-4xl font-bold text-center text-gradient mb-8 font-heading">What is TSL?</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-gray-600 leading-relaxed">
                 A LUXURY Living Experience Beyond The ordinary. TSL is a Once in a Lifetime living Experience For 
@@ -70,10 +73,10 @@ const AboutUs = () => {
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-skyliving-700 mb-12 text-center font-heading">WHY CHOOSE US</h2>
+          <h2 className="text-4xl font-bold text-center text-gradient mb-12 font-heading">WHY CHOOSE US</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            <div className="text-center">
+            <div className="text-center card-hover p-6 rounded-xl bg-white shadow-sm">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-skyliving-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 2h16a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/>
@@ -88,7 +91,7 @@ const AboutUs = () => {
               </p>
             </div>
             
-            <div className="text-center">
+            <div className="text-center card-hover p-6 rounded-xl bg-white shadow-sm">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-skyliving-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/>
@@ -103,7 +106,7 @@ const AboutUs = () => {
               </p>
             </div>
             
-            <div className="text-center">
+            <div className="text-center card-hover p-6 rounded-xl bg-white shadow-sm">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-skyliving-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/>
@@ -120,7 +123,7 @@ const AboutUs = () => {
               </p>
             </div>
             
-            <div className="text-center">
+            <div className="text-center card-hover p-6 rounded-xl bg-white shadow-sm">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-skyliving-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M2 12h20"/>
@@ -136,7 +139,7 @@ const AboutUs = () => {
               </p>
             </div>
             
-            <div className="text-center">
+            <div className="text-center card-hover p-6 rounded-xl bg-white shadow-sm">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-skyliving-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
@@ -150,7 +153,7 @@ const AboutUs = () => {
               </p>
             </div>
             
-            <div className="text-center">
+            <div className="text-center card-hover p-6 rounded-xl bg-white shadow-sm">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-skyliving-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>

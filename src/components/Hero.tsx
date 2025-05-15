@@ -6,24 +6,24 @@ import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-white flex items-center py-12 md:py-16 lg:py-24">
+    <section className="relative bg-white flex items-center py-28 md:py-32 lg:py-36">
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 animate-fade-in">
-              <div className="mb-8">
+              <div className="mb-6">
                 <span className="inline-block px-4 py-2 rounded-full bg-skyliving-100 text-skyliving-700 text-sm font-medium">Premium PG & Hostel Accommodations</span>
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 font-heading leading-tight">
-                Welcome to <span className="bg-clip-text text-transparent bg-gradient-to-r from-skyliving-600 to-skyliving-500">The Sky Living</span>
+                Welcome to <span className="text-gradient">The Sky Living</span>
               </h1>
               
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-heading">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 font-heading">
                 Experience a New Level of Convenience
               </h2>
               
-              <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl">
+              <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-2xl">
                 Welcome to The SkyLiving, where exceptional hostel/PG living awaits you. 
                 Step into a world of comfort, community, and unforgettable experiences. 
                 Our carefully curated accommodations provide a sanctuary in the sky.
@@ -45,8 +45,8 @@ const Hero = () => {
             </div>
             
             <div className="hidden lg:block lg:col-span-5 relative">
-              <div className="absolute -top-12 -right-12 w-64 h-64 bg-skyliving-200/50 rounded-full blur-3xl"></div>
-              <div className="absolute -bottom-12 -left-12 w-72 h-72 bg-skyliving-100/40 rounded-full blur-3xl"></div>
+              <div className="absolute -top-12 -right-12 w-64 h-64 bg-skyliving-100/50 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-12 -left-12 w-72 h-72 bg-skyliving-200/40 rounded-full blur-3xl"></div>
               
               <div className="relative bg-white p-4 rounded-3xl shadow-lg border border-gray-100">
                 <img 

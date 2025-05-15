@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 
 // Sample gallery categories and images
@@ -97,11 +98,11 @@ const Gallery = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-skyliving-800">
+      <section className="relative py-24 bg-white">
         <div className="page-hero-overlay"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mix-blend-overlay z-[-1]"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-10 z-[-1]"></div>
         <div className="container mx-auto px-4 z-10 text-center page-hero-content">
-          <h1 className="page-hero-title">GALLERY</h1>
+          <h1 className="page-hero-title text-gradient">GALLERY</h1>
           <p className="page-hero-subtitle">
             Take a visual tour of our premium PG and hostel accommodations.
           </p>
@@ -112,7 +113,7 @@ const Gallery = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           {/* Category Tabs */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-12 overflow-x-auto">
             <div className="inline-flex rounded-md overflow-hidden shadow-md" role="group">
               {Object.keys(galleryData).map((category) => (
                 <button
@@ -120,8 +121,8 @@ const Gallery = () => {
                   type="button"
                   className={`px-6 py-3 text-base font-medium focus:outline-none transition-colors ${
                     activeCategory === category
-                      ? "bg-skyliving-700 text-white"
-                      : "bg-white text-skyliving-700 hover:bg-skyliving-50"
+                      ? "bg-skyliving-600 text-white"
+                      : "bg-white text-skyliving-600 hover:bg-skyliving-50"
                   }`}
                   onClick={() => setActiveCategory(category)}
                 >
@@ -136,7 +137,7 @@ const Gallery = () => {
             {galleryData[activeCategory].map((image) => (
               <div 
                 key={image.id} 
-                className="group overflow-hidden rounded-xl shadow-md cursor-pointer hover:shadow-xl transition-all duration-300 bg-white"
+                className="group overflow-hidden rounded-xl shadow-md cursor-pointer hover:shadow-xl transition-all duration-300 bg-white card-hover"
                 onClick={() => handleImageClick(image)}
               >
                 <div className="aspect-[4/3] overflow-hidden">
@@ -147,7 +148,7 @@ const Gallery = () => {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-medium text-skyliving-700">{image.alt}</h3>
+                  <h3 className="font-medium text-skyliving-600">{image.alt}</h3>
                 </div>
               </div>
             ))}
@@ -175,7 +176,7 @@ const Gallery = () => {
               </button>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-semibold text-skyliving-700">{selectedImage.alt}</h3>
+              <h3 className="text-xl font-semibold text-skyliving-600">{selectedImage.alt}</h3>
             </div>
           </div>
         </div>
