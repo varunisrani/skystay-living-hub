@@ -6,145 +6,12 @@ import {
   MapPin, 
   Phone, 
   Mail, 
-  Wifi, 
-  Coffee, 
-  Shield, 
-  Truck, 
-  ShirtIcon, 
-  Video, 
-  Car,
   ArrowLeft
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-
-const accommodationsData = [
-  {
-    id: 1,
-    name: "Dream House Boys PG/Hostel",
-    code: "TSL-6",
-    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    features: ["Boys Accommodation", "Safe and Sanitized", "2, 3 and 4 Sharing"],
-    address: "13 Falgun Society, Opp. Honest Restaurant, B/H. AG Teachers School, Nr. Hanumanji Mandir Commerce Six Road Navrangpura.",
-    contact: "+91 9784034279",
-    email: "info@skyliving.co.in",
-    description: "Dream House Boys PG/Hostel offers premium accommodation designed specifically for students and young professionals. Our facility provides a comfortable and conducive environment for both study and relaxation. With spacious rooms, modern amenities, and a community atmosphere, Dream House ensures you feel at home while pursuing your dreams.",
-    rooms: [
-      { type: "Twin Sharing", price: "₹12,000/month", availability: "Available" },
-      { type: "Triple Sharing", price: "₹9,500/month", availability: "Limited" },
-      { type: "Four Sharing", price: "₹8,000/month", availability: "Available" }
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-4.0.3&q=80"
-    ]
-  },
-  {
-    id: 2,
-    name: "Sky Boys PG/Hostel",
-    code: "TSL-4",
-    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3",
-    features: ["Boys Accommodation", "Safe and Sanitized", "2, 3 and 4 Sharing"],
-    address: "Near St. Xavier's College, Navrangpura, Ahmedabad",
-    contact: "+91 9784034279",
-    email: "info@skyliving.co.in",
-    description: "Sky Boys PG/Hostel represents the pinnacle of student living in Ahmedabad. Located strategically near St. Xavier's College, we provide modern accommodations with all amenities required for a comfortable stay. Our dedicated staff ensures that all your needs are met, allowing you to focus on your studies and personal growth.",
-    rooms: [
-      { type: "Twin Sharing", price: "₹12,500/month", availability: "Limited" },
-      { type: "Triple Sharing", price: "₹10,000/month", availability: "Available" },
-      { type: "Four Sharing", price: "₹8,500/month", availability: "Available" }
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-4.0.3&q=80"
-    ]
-  },
-  {
-    id: 3,
-    name: "Shiv Kedar Boys PG/Hostel",
-    code: "TSL-2",
-    image: "https://images.unsplash.com/photo-1623625434462-e5e42318ae49?ixlib=rb-4.0.3",
-    features: ["Boys Accommodation", "Safe and Sanitized", "2, 3 and 4 Sharing"],
-    address: "Navrangpura, Ahmedabad",
-    contact: "+91 9784034279",
-    email: "info@skyliving.co.in",
-    description: "Shiv Kedar Boys PG/Hostel combines traditional values with modern amenities to create a unique living experience. Our hostel emphasizes discipline, cleanliness, and community living while providing all the facilities needed for academic success. The serene environment makes it an ideal choice for serious students.",
-    rooms: [
-      { type: "Twin Sharing", price: "₹11,500/month", availability: "Available" },
-      { type: "Triple Sharing", price: "₹9,000/month", availability: "Available" },
-      { type: "Four Sharing", price: "₹7,500/month", availability: "Limited" }
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1623625434462-e5e42318ae49?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-4.0.3&q=80"
-    ]
-  },
-  {
-    id: 4,
-    name: "Shiv Shankar Boys PG/Hostel",
-    code: "TSL-3",
-    image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-4.0.3",
-    features: ["Boys Accommodation", "Safe and Sanitized", "2, 3 and 4 Sharing"],
-    address: "Navrangpura, Ahmedabad",
-    contact: "+91 9784034279",
-    email: "info@skyliving.co.in",
-    description: "Shiv Shankar Boys PG/Hostel is known for its contemporary spaces infused with traditional values. We offer comfortable accommodation with a focus on creating a disciplined yet relaxed environment. Our location in Navrangpura provides easy access to educational institutions, shopping centers, and recreational facilities.",
-    rooms: [
-      { type: "Twin Sharing", price: "₹12,000/month", availability: "Limited" },
-      { type: "Triple Sharing", price: "₹9,500/month", availability: "Available" },
-      { type: "Four Sharing", price: "₹8,000/month", availability: "Available" }
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1623625434462-e5e42318ae49?ixlib=rb-4.0.3&q=80"
-    ]
-  },
-  {
-    id: 5,
-    name: "Akaria House",
-    code: "TSL-8",
-    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3",
-    features: ["Modern Accommodation", "Safe and Sanitized", "2, 3 and 4 Sharing"],
-    address: "Navrangpura, Ahmedabad",
-    contact: "+91 9784034279",
-    email: "info@skyliving.co.in",
-    description: "Akaria House stands as a symbol of luxury living with all modern amenities. Our premium accommodation ensures that residents experience comfort and convenience at every step. From spacious rooms to state-of-the-art facilities, Akaria House is designed to elevate your living standards while you focus on your academic or professional journey.",
-    rooms: [
-      { type: "Twin Sharing", price: "₹13,000/month", availability: "Available" },
-      { type: "Triple Sharing", price: "₹10,500/month", availability: "Limited" },
-      { type: "Four Sharing", price: "₹9,000/month", availability: "Available" }
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-4.0.3&q=80"
-    ]
-  },
-  {
-    id: 6,
-    name: "Parvati House",
-    code: "TSL-5",
-    image: "https://images.unsplash.com/photo-1560185008-a9a0bb5cdfb5?ixlib=rb-4.0.3",
-    features: ["Modern Accommodation", "Safe and Sanitized", "2, 3 and 4 Sharing"],
-    address: "Navrangpura, Ahmedabad",
-    contact: "+91 9784034279",
-    email: "info@skyliving.co.in",
-    description: "Parvati House offers premium accommodations in a prime location in Navrangpura. Our facility is designed keeping in mind the needs of modern students and working professionals. With a blend of comfort and functionality, Parvati House provides an environment that promotes both academic excellence and personal well-being.",
-    rooms: [
-      { type: "Twin Sharing", price: "₹12,500/month", availability: "Limited" },
-      { type: "Triple Sharing", price: "₹10,000/month", availability: "Available" },
-      { type: "Four Sharing", price: "₹8,500/month", availability: "Available" }
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1560185008-a9a0bb5cdfb5?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&q=80",
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-4.0.3&q=80"
-    ]
-  }
-];
+import { Accommodation, AccommodationImage, RoomType } from '@/types/accommodation';
+import { getAccommodationById, getAccommodationImages, getRoomTypes } from '@/services/accommodationService';
+import { useToast } from '@/components/ui/use-toast';
 
 const roomAmenities = [
   { name: "Spacious Wardrobe & Extra Storage Space", icon: "📦" },
@@ -166,21 +33,69 @@ const commonAmenities = [
 ];
 
 const AccommodationDetail = () => {
-  const { id } = useParams();
-  const [accommodation, setAccommodation] = useState(null);
+  const { id } = useParams<{ id: string }>();
+  const [accommodation, setAccommodation] = useState<Accommodation | null>(null);
+  const [images, setImages] = useState<AccommodationImage[]>([]);
+  const [roomTypes, setRoomTypes] = useState<RoomType[]>([]);
   const [activeImage, setActiveImage] = useState('');
+  const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     
-    const foundAccommodation = accommodationsData.find(a => a.id === parseInt(id));
-    
-    if (foundAccommodation) {
-      setAccommodation(foundAccommodation);
-      setActiveImage(foundAccommodation.image);
-      document.title = `${foundAccommodation.name} | The Sky Living`;
-    }
-  }, [id]);
+    const fetchAccommodationDetails = async () => {
+      if (!id) return;
+      
+      try {
+        setLoading(true);
+        
+        // Fetch accommodation data
+        const accommodationData = await getAccommodationById(id);
+        if (!accommodationData) {
+          toast({
+            title: "Error",
+            description: "Accommodation not found",
+            variant: "destructive"
+          });
+          return;
+        }
+        
+        setAccommodation(accommodationData);
+        setActiveImage(accommodationData.main_image);
+        document.title = `${accommodationData.name} | The Sky Living`;
+        
+        // Fetch accommodation images
+        const imagesData = await getAccommodationImages(id);
+        setImages(imagesData);
+        
+        // Fetch room types
+        const roomTypesData = await getRoomTypes(id);
+        setRoomTypes(roomTypesData);
+      } catch (error) {
+        console.error('Error fetching accommodation details:', error);
+        toast({
+          title: "Error",
+          description: "Failed to load accommodation details. Please try again later.",
+          variant: "destructive"
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAccommodationDetails();
+  }, [id, toast]);
+
+  if (loading) {
+    return (
+      <div className="pt-32 pb-20 min-h-screen bg-white">
+        <div className="container mx-auto px-4 flex justify-center items-center h-64">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-skyliving-600"></div>
+        </div>
+      </div>
+    );
+  }
 
   if (!accommodation) {
     return (
@@ -195,6 +110,9 @@ const AccommodationDetail = () => {
       </div>
     );
   }
+
+  // Use main image if no gallery images are available
+  const galleryImages = images.length > 0 ? images : [{ id: 'main', accommodation_id: id || '', image_url: accommodation.main_image, alt_text: accommodation.name, sort_order: 0, created_at: '' }];
 
   return (
     <div className="pt-32 pb-20 bg-white">
@@ -237,15 +155,15 @@ const AccommodationDetail = () => {
           </div>
           <div className="lg:col-span-2">
             <div className="grid grid-cols-3 gap-3 h-full">
-              {accommodation.gallery.map((img, index) => (
+              {galleryImages.map((img) => (
                 <div 
-                  key={index} 
-                  className={`rounded-lg overflow-hidden cursor-pointer border-2 ${activeImage === img ? 'border-skyliving-500' : 'border-transparent'}`}
-                  onClick={() => setActiveImage(img)}
+                  key={img.id} 
+                  className={`rounded-lg overflow-hidden cursor-pointer border-2 ${activeImage === img.image_url ? 'border-skyliving-500' : 'border-transparent'}`}
+                  onClick={() => setActiveImage(img.image_url)}
                 >
                   <img 
-                    src={img} 
-                    alt={`${accommodation.name} gallery ${index + 1}`} 
+                    src={img.image_url} 
+                    alt={img.alt_text} 
                     className="w-full h-full object-cover aspect-square"
                   />
                 </div>
@@ -302,10 +220,10 @@ const AccommodationDetail = () => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {accommodation.rooms.map((room, index) => (
-                      <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    {roomTypes.map((room, index) => (
+                      <tr key={room.id} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                         <td className="px-4 py-4 text-sm text-gray-900">{room.type}</td>
-                        <td className="px-4 py-4 text-sm text-gray-900 font-medium">{room.price}</td>
+                        <td className="px-4 py-4 text-sm text-gray-900 font-medium">₹{room.price.toLocaleString()}/month</td>
                         <td className="px-4 py-4 text-sm">
                           <span 
                             className={`inline-flex px-2.5 py-1 rounded-full text-xs font-medium ${
