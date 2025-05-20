@@ -16,17 +16,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 255 80% 65%;
+    --primary: 219 49% 53%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 226 60% 29%;
+    --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 35 53% 63%;
+    --accent-foreground: 24 42% 33%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -57,16 +57,16 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 219 49% 53%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 226 60% 29%; 
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 35 53% 63%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -102,7 +102,7 @@
 
 /* Section styling */
 .section-heading {
-  @apply text-4xl md:text-5xl font-heading font-bold text-skyliving-600 mb-8 text-center;
+  @apply text-4xl md:text-5xl font-heading font-bold text-skyliving-700 mb-8 text-center drop-shadow-sm;
 }
 
 .section-container {
@@ -119,11 +119,11 @@
 
 /* Page header for internal pages (not home) */
 .page-hero {
-  @apply relative py-24 bg-white;
+  @apply relative py-24 bg-gradient-to-r from-skyliving-800 to-skyliving-700 shadow-lg;
 }
 
 .page-hero-title {
-  @apply text-5xl font-bold text-skyliving-700 mb-6 font-heading drop-shadow-lg;
+  @apply text-5xl font-bold text-white mb-6 font-heading drop-shadow-lg;
 }
 
 /* Page hero styling with better visibility */
@@ -132,20 +132,38 @@
 }
 
 .page-hero-overlay {
-  @apply absolute inset-0 bg-white opacity-80;
+  @apply absolute inset-0 bg-white opacity-10;
 }
 
 .page-hero-title {
-  @apply text-skyliving-700 text-5xl font-bold font-heading drop-shadow-xl mb-4;
+  @apply text-white text-5xl font-bold font-heading drop-shadow-xl mb-4;
 }
 
 .page-hero-subtitle {
-  @apply text-gray-600 text-xl max-w-3xl mx-auto opacity-90;
+  @apply text-white/90 text-xl max-w-3xl mx-auto;
+}
+
+/* Add wooden accent element to page headers */
+.page-hero::after {
+  content: '';
+  @apply absolute bottom-0 left-0 right-0 h-1 bg-wooden;
 }
 
 /* Modern UI improvements */
 .gradient-bg {
-  @apply bg-gradient-to-r from-skyliving-500 to-skyliving-400;
+  @apply bg-gradient-to-r from-skyliving-600 to-skyliving-500;
+}
+
+.gradient-dark-bg {
+  @apply bg-gradient-to-r from-skyliving-800 to-skyliving-700;
+}
+
+.wooden-accent {
+  @apply border-l-4 border-wooden pl-4;
+}
+
+.premium-shadow {
+  @apply shadow-premium;
 }
 
 .card-hover {
@@ -169,5 +187,9 @@
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-skyliving-600 to-skyliving-400;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-skyliving-700 to-skyliving-500;
+}
+
+.text-gradient-premium {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-skyliving-800 via-skyliving-600 to-wooden;
 }
