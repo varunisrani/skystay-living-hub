@@ -16,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 219 49% 53%;
+    --primary: 221 48% 54%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 226 60% 29%;
+    --secondary: 232 60% 29%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 0 0% 97%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 35 53% 63%;
+    --accent: 32 55% 63%;
     --accent-foreground: 24 42% 33%;
 
     --destructive: 0 84.2% 60.2%;
@@ -57,16 +57,16 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 219 49% 53%;
+    --primary: 221 48% 54%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 226 60% 29%; 
+    --secondary: 232 60% 29%; 
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 35 53% 63%;
+    --accent: 32 55% 63%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -102,7 +102,15 @@
 
 /* Section styling */
 .section-heading {
-  @apply text-4xl md:text-5xl font-heading font-bold text-skyliving-700 mb-8 text-center drop-shadow-sm;
+  @apply text-4xl md:text-5xl font-heading font-bold text-skyliving-700 mb-8 text-center drop-shadow-sm tracking-tight;
+  position: relative;
+}
+
+.section-heading::after {
+  content: '';
+  width: 80px;
+  height: 3px;
+  @apply bg-wooden mx-auto mt-4 block rounded-full;
 }
 
 .section-container {
@@ -119,7 +127,14 @@
 
 /* Page header for internal pages (not home) */
 .page-hero {
-  @apply relative py-24 bg-gradient-to-r from-skyliving-800 to-skyliving-700 shadow-lg;
+  @apply relative py-24 bg-gradient-to-r from-skyliving-800 to-skyliving-700 shadow-xl;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-skyliving-800/90 to-skyliving-600/80;
 }
 
 .page-hero-title {
@@ -136,30 +151,52 @@
 }
 
 .page-hero-title {
-  @apply text-white text-5xl font-bold font-heading drop-shadow-xl mb-4;
+  @apply text-white text-5xl font-bold font-heading drop-shadow-xl mb-6;
+  letter-spacing: -0.02em;
 }
 
 .page-hero-subtitle {
-  @apply text-white/90 text-xl max-w-3xl mx-auto;
+  @apply text-white/95 text-xl max-w-3xl mx-auto drop-shadow-md;
+  letter-spacing: 0.01em;
 }
 
 /* Add wooden accent element to page headers */
 .page-hero::after {
   content: '';
-  @apply absolute bottom-0 left-0 right-0 h-1 bg-wooden;
+  @apply absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-wooden/90 via-wooden to-wooden/90;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Modern UI improvements */
 .gradient-bg {
   @apply bg-gradient-to-r from-skyliving-600 to-skyliving-500;
+  position: relative;
+}
+
+.gradient-bg::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-b from-white/5 to-transparent;
 }
 
 .gradient-dark-bg {
   @apply bg-gradient-to-r from-skyliving-800 to-skyliving-700;
+  position: relative;
+}
+
+.gradient-dark-bg::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-b from-black/5 to-transparent;
 }
 
 .wooden-accent {
   @apply border-l-4 border-wooden pl-4;
+  position: relative;
+}
+
+.wooden-accent::after {
+  content: '';
+  @apply absolute left-0 top-0 bottom-0 w-0.5 bg-wooden/30;
+  transform: translateX(-4px);
 }
 
 .premium-shadow {
@@ -168,6 +205,16 @@
 
 .card-hover {
   @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  position: relative;
+}
+
+.card-hover::after {
+  content: '';
+  @apply absolute inset-x-0 bottom-0 h-1 bg-wooden/0 transition-all duration-300;
+}
+
+.card-hover:hover::after {
+  @apply bg-wooden/70;
 }
 
 .glass-effect {
@@ -175,21 +222,31 @@
 }
 
 .modern-input {
-  @apply bg-white border border-gray-200 rounded-lg px-5 py-4 focus:outline-none focus:ring-2 focus:ring-skyliving-500;
+  @apply bg-white border border-gray-200 rounded-lg px-5 py-4 focus:outline-none focus:ring-2 focus:ring-skyliving-500 shadow-sm transition-all duration-300;
+}
+
+.modern-input:focus {
+  @apply border-skyliving-400 shadow-md;
 }
 
 .section-subtitle {
-  @apply text-lg text-skyliving-500 font-medium mb-3;
+  @apply text-lg text-skyliving-500 font-medium mb-3 tracking-wide;
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 font-heading;
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 font-heading tracking-tight;
 }
 
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-skyliving-700 to-skyliving-500;
+  position: relative;
 }
 
 .text-gradient-premium {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-skyliving-800 via-skyliving-600 to-wooden;
+}
+
+/* Background patterns */
+.bg-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234F73C0' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }

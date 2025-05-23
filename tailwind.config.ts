@@ -145,7 +145,7 @@ export default {
 				'slide-in': 'slide-in 0.6s ease-out',
 			},
 			boxShadow: {
-				'premium': '0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+				'premium': '0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.08)',
 			},
 		}
 	},
