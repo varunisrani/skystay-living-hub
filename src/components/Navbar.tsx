@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import PgTypeSelection from './PgTypeSelection';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +37,27 @@ const Navbar = () => {
             <div className="ml-10 flex items-center space-x-10">
               <Link to="/" className="font-medium transition-colors text-gray-700 hover:text-skyliving-600">Home</Link>
               <Link to="/about" className="font-medium transition-colors text-gray-700 hover:text-skyliving-600">About Us</Link>
-              <Link to="/accommodations" className="font-medium transition-colors text-gray-700 hover:text-skyliving-600">PG/Hostel</Link>
+              
+              {/* Boys PG Dropdown */}
+              <PgTypeSelection 
+                type="boys" 
+                triggerElement={
+                  <span className="font-medium transition-colors text-gray-700 hover:text-skyliving-600 cursor-pointer">
+                    Boys PG
+                  </span>
+                } 
+              />
+
+              {/* Girls PG Dropdown */}
+              <PgTypeSelection 
+                type="girls" 
+                triggerElement={
+                  <span className="font-medium transition-colors text-gray-700 hover:text-skyliving-600 cursor-pointer">
+                    Girls PG
+                  </span>
+                } 
+              />
+              
               <Link to="/gallery" className="font-medium transition-colors text-gray-700 hover:text-skyliving-600">Gallery</Link>
               <Link to="/contact" className="font-medium transition-all px-6 py-2.5 rounded-full shadow-md bg-skyliving-600 text-white hover:bg-skyliving-700">
                 Contact Us
@@ -65,9 +86,17 @@ const Navbar = () => {
           <Link to="/about" className="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-skyliving-50 transition-colors" onClick={() => setIsOpen(false)}>
             About Us
           </Link>
-          <Link to="/accommodations" className="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-skyliving-50 transition-colors" onClick={() => setIsOpen(false)}>
-            PG/Hostel
+          
+          {/* Mobile Boys PG Link */}
+          <Link to="/boys-accommodations" className="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-skyliving-50 transition-colors" onClick={() => setIsOpen(false)}>
+            Boys PG/Hostel
           </Link>
+          
+          {/* Mobile Girls PG Link */}
+          <Link to="/girls-accommodations" className="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-skyliving-50 transition-colors" onClick={() => setIsOpen(false)}>
+            Girls PG/Hostel
+          </Link>
+          
           <Link to="/gallery" className="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-skyliving-50 transition-colors" onClick={() => setIsOpen(false)}>
             Gallery
           </Link>
