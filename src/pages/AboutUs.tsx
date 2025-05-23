@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 
 const AboutUs = () => {
@@ -10,12 +9,12 @@ const AboutUs = () => {
   return (
     <div className="pt-20">
       {/* About Hero Section */}
-      <section className="relative py-24 bg-white">
+      <section className="relative py-24 bg-[#283B91] text-white">
         <div className="page-hero-overlay"></div>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mix-blend-overlay opacity-10 z-[-1]"></div>
         <div className="container mx-auto px-4 z-10 text-center page-hero-content">
-          <h1 className="page-hero-title text-gradient">ABOUT US</h1>
-          <p className="page-hero-subtitle">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 font-heading">ABOUT US</h1>
+          <p className="text-xl text-white/90">
             Discover our story and what makes us different
           </p>
         </div>

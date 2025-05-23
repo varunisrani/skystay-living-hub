@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Button } from '@/components/ui/button';
+import { ChevronDown } from 'lucide-react';
 
 interface PgTypeSelectionProps {
   type: 'boys' | 'girls';
-  triggerElement: React.ReactNode;
+  triggerElement?: React.ReactNode;
 }
 
 const PgTypeSelection = ({ type, triggerElement }: PgTypeSelectionProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   
   const handleSelection = (path: string) => {
     navigate(path);
+    setIsOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
   
-  const title = type === 'boys' ? 'Boys PG/Hostels' : 'Girls PG/Hostels';
   const availableOptions = [
     {
       id: 1,
@@ -38,44 +44,30 @@ const PgTypeSelection = ({ type, triggerElement }: PgTypeSelectionProps) => {
   ];
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        {triggerElement}
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="text-center text-xl font-heading text-skyliving-700">
-            {title}
-          </DialogTitle>
-        </DialogHeader>
-        <div className="py-4">
-          <p className="text-center text-sm text-gray-600 mb-4">
-            Please select a PG/Hostel to view details
-          </p>
-          <div className="space-y-3">
-            {availableOptions.map((option) => (
-              <div 
-                key={option.id}
-                onClick={() => handleSelection(option.path)}
-                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md cursor-pointer transition-all"
-              >
-                <h3 className="font-medium text-skyliving-600">{option.name}</h3>
-                <p className="text-sm text-gray-500">{option.location}</p>
-              </div>
-            ))}
-            <div className="text-center mt-4">
-              <Button 
-                variant="outline"
-                onClick={() => handleSelection('/accommodations')}
-                className="w-full"
-              >
-                View All PG/Hostels
-              </Button>
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-1 font-medium transition-colors text-gray-700 hover:text-skyliving-600"
+      >
+        {type === 'boys' ? 'Boys PG' : 'Girls PG'}
+        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+
+      {isOpen && (
+        <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50">
+          {availableOptions.map((option) => (
+            <div 
+              key={option.id}
+              onClick={() => handleSelection(option.path)}
+              className="px-4 py-3 hover:bg-gray-50 cursor-pointer"
+            >
+              <h3 className="font-medium text-skyliving-600">{option.name}</h3>
+              <p className="text-sm text-gray-500">{option.location}</p>
             </div>
-          </div>
+          ))}
         </div>
-      </DialogContent>
-    </Dialog>
+      )}
+    </div>
   );
 };
 

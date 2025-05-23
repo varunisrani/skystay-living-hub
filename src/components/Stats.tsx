@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 
 const Stats = () => {
@@ -58,7 +57,7 @@ const Stats = () => {
   }, [animateStats]);
 
   return (
-    <section ref={statsRef} className="py-24 bg-white">
+    <section ref={statsRef} className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {stats.map((stat) => (

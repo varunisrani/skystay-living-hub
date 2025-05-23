@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -30,7 +29,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <span className="text-3xl font-heading font-bold transition-colors duration-300 text-skyliving-700">THE SKY LIVING</span>
+              <img 
+                src="https://i.ibb.co/W4ydK2BR/LOGO-bg-scaled.webp" 
+                alt="The Sky Living" 
+                className="h-20 w-auto"
+              />
             </Link>
           </div>
           <div className="hidden md:block">
@@ -39,24 +42,10 @@ const Navbar = () => {
               <Link to="/about" className="font-medium transition-colors text-gray-700 hover:text-skyliving-600">About Us</Link>
               
               {/* Boys PG Dropdown */}
-              <PgTypeSelection 
-                type="boys" 
-                triggerElement={
-                  <span className="font-medium transition-colors text-gray-700 hover:text-skyliving-600 cursor-pointer">
-                    Boys PG
-                  </span>
-                } 
-              />
+              <PgTypeSelection type="boys" />
 
               {/* Girls PG Dropdown */}
-              <PgTypeSelection 
-                type="girls" 
-                triggerElement={
-                  <span className="font-medium transition-colors text-gray-700 hover:text-skyliving-600 cursor-pointer">
-                    Girls PG
-                  </span>
-                } 
-              />
+              <PgTypeSelection type="girls" />
               
               <Link to="/gallery" className="font-medium transition-colors text-gray-700 hover:text-skyliving-600">Gallery</Link>
               <Link to="/contact" className="font-medium transition-all px-6 py-2.5 rounded-full shadow-md bg-skyliving-600 text-white hover:bg-skyliving-700">
