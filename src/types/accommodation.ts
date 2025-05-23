@@ -11,6 +11,7 @@ export interface Accommodation {
   main_image: string;
   created_at: string;
   updated_at: string;
+  gender?: 'male' | 'female' | 'mixed' | null;
 }
 
 export interface AccommodationImage {

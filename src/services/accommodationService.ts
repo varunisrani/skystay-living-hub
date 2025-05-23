@@ -16,6 +16,26 @@ export async function getAllAccommodations(): Promise<Accommodation[]> {
   return data || [];
 }
 
+export async function getAccommodationsByGender(gender: 'male' | 'female' | 'mixed'): Promise<Accommodation[]> {
+  const { data, error } = await supabase
+    .from('accommodations')
+    .select('*')
+    .eq('gender', gender)
+    .order('name');
+  
+  if (error) {
+    console.error('Error fetching accommodations by gender:', error);
+    return [];
+  }
+  
+  // If no data with specified gender is found, return all accommodations
+  if (!data || data.length === 0) {
+    return getAllAccommodations();
+  }
+  
+  return data;
+}
+
 export async function getAccommodationById(id: string): Promise<Accommodation | null> {
   const { data, error } = await supabase
     .from('accommodations')
