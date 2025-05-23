@@ -32,7 +32,7 @@ const Navbar = () => {
               <img 
                 src="https://i.ibb.co/W4ydK2BR/LOGO-bg-scaled.webp" 
                 alt="The Sky Living" 
-                className="h-20 w-auto"
+                className="h-16 w-auto"
               />
             </Link>
           </div>

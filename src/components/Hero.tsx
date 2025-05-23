@@ -49,9 +49,9 @@ const Hero = () => {
               
               <div className="relative bg-white p-4 rounded-3xl shadow-lg border border-gray-100">
                 <img 
-                  src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3" 
-                  alt="Premium accommodation" 
-                  className="w-full h-[400px] object-cover rounded-2xl"
+                  src="https://i.ibb.co/W4ydK2BR/LOGO-bg-scaled.webp" 
+                  alt="The Sky Living" 
+                  className="w-full h-[400px] object-contain rounded-2xl bg-white p-8"
                 />
                 
                 <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl">
