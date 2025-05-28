@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Hero from '../components/Hero';
 import Stats from '../components/Stats';
@@ -7,6 +6,7 @@ import Hostels from '../components/Hostels';
 import Services from '../components/Services';
 import NearbyPlaces from '../components/NearbyPlaces';
 import Testimonials from '../components/Testimonials';
+import InstagramFeed from '../components/InstagramFeed';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
@@ -25,6 +25,7 @@ const Index = () => {
       <Services />
       <NearbyPlaces />
       <Testimonials />
+      <InstagramFeed />
       
       {/* Call to Action */}
       <section className="py-24 bg-white">

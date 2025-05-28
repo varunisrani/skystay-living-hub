@@ -1,4 +1,3 @@
-
 import { supabase } from "@/integrations/supabase/client";
 import { Accommodation, AccommodationImage, RoomType } from "@/types/accommodation";
 
@@ -16,11 +15,11 @@ export async function getAllAccommodations(): Promise<Accommodation[]> {
   return data || [];
 }
 
-export async function getAccommodationsByGender(gender: 'male' | 'female' | 'mixed'): Promise<Accommodation[]> {
+export async function getAccommodationsByGender(gender: 'boy' | 'girl' | 'mixed'): Promise<Accommodation[]> {
   const { data, error } = await supabase
     .from('accommodations')
     .select('*')
-    .eq('gender', gender)
+    .eq('category', gender)
     .order('name');
   
   if (error) {

@@ -1,4 +1,3 @@
-
 export interface Accommodation {
   id: string;
   name: string;
@@ -11,7 +10,7 @@ export interface Accommodation {
   main_image: string;
   created_at: string;
   updated_at: string;
-  gender?: 'male' | 'female' | 'mixed' | null;
+  category?: 'boy' | 'girl' | 'mixed' | null;
 }
 
 export interface AccommodationImage {
