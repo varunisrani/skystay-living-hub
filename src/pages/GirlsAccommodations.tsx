@@ -37,7 +37,7 @@ const GirlsAccommodations = () => {
     const fetchAccommodations = async () => {
       try {
         setLoading(true);
-        const data = await getAccommodationsByGender('girl');
+        const data = await getAccommodationsByGender('girls');
         setAccommodations(data);
       } catch (error) {
         console.error('Error fetching accommodations:', error);

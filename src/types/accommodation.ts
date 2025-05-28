@@ -10,7 +10,7 @@ export interface Accommodation {
   main_image: string;
   created_at: string;
   updated_at: string;
-  category?: 'boy' | 'girl' | 'mixed' | null;
+  pg_category?: 'boys' | 'girls' | 'mixed' | null;
 }
 
 export interface AccommodationImage {

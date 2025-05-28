@@ -15,11 +15,11 @@ export async function getAllAccommodations(): Promise<Accommodation[]> {
   return data || [];
 }
 
-export async function getAccommodationsByGender(gender: 'boy' | 'girl' | 'mixed'): Promise<Accommodation[]> {
+export async function getAccommodationsByGender(gender: 'boys' | 'girls' | 'mixed'): Promise<Accommodation[]> {
   const { data, error } = await supabase
     .from('accommodations')
     .select('*')
-    .eq('category', gender)
+    .eq('pg_category', gender)
     .order('name');
   
   if (error) {
@@ -27,12 +27,7 @@ export async function getAccommodationsByGender(gender: 'boy' | 'girl' | 'mixed'
     return [];
   }
   
-  // If no data with specified gender is found, return all accommodations
-  if (!data || data.length === 0) {
-    return getAllAccommodations();
-  }
-  
-  return data;
+  return data || [];
 }
 
 export async function getAccommodationById(id: string): Promise<Accommodation | null> {

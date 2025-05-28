@@ -33,7 +33,7 @@ const PgTypeSelection = ({ type, triggerElement }: PgTypeSelectionProps) => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-
+  
   // Fetch accommodations when dropdown is opened
   useEffect(() => {
     const fetchAccommodations = async () => {
@@ -41,7 +41,7 @@ const PgTypeSelection = ({ type, triggerElement }: PgTypeSelectionProps) => {
       
       try {
         setLoading(true);
-        const data = await getAccommodationsByGender(type === 'boys' ? 'boy' : 'girl');
+        const data = await getAccommodationsByGender(type);
         setAccommodations(data);
       } catch (error) {
         console.error('Error fetching accommodations:', error);
@@ -76,11 +76,11 @@ const PgTypeSelection = ({ type, triggerElement }: PgTypeSelectionProps) => {
             </div>
           ) : accommodations.length > 0 ? (
             accommodations.map((accommodation) => (
-              <div 
+            <div 
                 key={accommodation.id}
                 onClick={() => handleSelection(accommodation.id)}
-                className="px-4 py-3 hover:bg-gray-50 cursor-pointer"
-              >
+              className="px-4 py-3 hover:bg-gray-50 cursor-pointer"
+            >
                 <h3 className="font-medium text-skyliving-600">{accommodation.name}</h3>
                 <p className="text-sm text-gray-500">{accommodation.address}</p>
               </div>
