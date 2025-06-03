@@ -81,7 +81,7 @@ const PgTypeSelection = ({ type, triggerElement }: PgTypeSelectionProps) => {
                 onClick={() => handleSelection(accommodation.id)}
               className="px-4 py-3 hover:bg-gray-50 cursor-pointer"
             >
-                <h3 className="font-medium text-skyliving-600">{accommodation.name}</h3>
+                <h3 className="font-medium text-skyliving-600"><span className="font-bold mr-2">{accommodation.code}</span>{accommodation.name}</h3>
                 <p className="text-sm text-gray-500">{accommodation.address}</p>
               </div>
             ))

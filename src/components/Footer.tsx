@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { getAccommodationsByGender } from '@/services/accommodationService';
+import { Accommodation } from '@/types/accommodation';
 
 const Footer = () => {
+  const [boysPGs, setBoysPGs] = useState<Accommodation[]>([]);
+  const [girlsPGs, setGirlsPGs] = useState<Accommodation[]>([]);
+
+  useEffect(() => {
+    getAccommodationsByGender('boys').then(setBoysPGs);
+    getAccommodationsByGender('girls').then(setGirlsPGs);
+  }, []);
+
   return (
     <footer className="bg-[#283B91] text-white border-t border-white/10">
       <div className="container mx-auto px-4 py-16">
         {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {/* About */}
           <div>
             <img 
@@ -37,8 +47,8 @@ const Footer = () => {
           
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-bold mb-6 uppercase tracking-wider text-white">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-lg font-bold mb-4 uppercase tracking-wider text-white">Quick Links</h4>
+            <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-white/90 hover:text-white transition-colors hover:translate-x-1 transform duration-200 flex items-center">
                   <span className="inline-block w-1 h-1 rounded-full bg-white/50 mr-2"></span>
@@ -72,47 +82,36 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Our Hostels */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 uppercase tracking-wider text-white">Our Hostels</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-white/90 hover:text-white transition-colors hover:translate-x-1 transform duration-200 flex items-center">
-                  <span className="inline-block w-1 h-1 rounded-full bg-white/50 mr-2"></span>
-                  Sky Boys PG/Hostel
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/90 hover:text-white transition-colors hover:translate-x-1 transform duration-200 flex items-center">
-                  <span className="inline-block w-1 h-1 rounded-full bg-white/50 mr-2"></span>
-                  Shiv Kedar Boys PG/Hostel
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/90 hover:text-white transition-colors hover:translate-x-1 transform duration-200 flex items-center">
-                  <span className="inline-block w-1 h-1 rounded-full bg-white/50 mr-2"></span>
-                  Akaria House
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/90 hover:text-white transition-colors hover:translate-x-1 transform duration-200 flex items-center">
-                  <span className="inline-block w-1 h-1 rounded-full bg-white/50 mr-2"></span>
-                  Dream House Boys PG/Hostel
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/90 hover:text-white transition-colors hover:translate-x-1 transform duration-200 flex items-center">
-                  <span className="inline-block w-1 h-1 rounded-full bg-white/50 mr-2"></span>
-                  Shiv Shankar Boys PG/Hostel
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/90 hover:text-white transition-colors hover:translate-x-1 transform duration-200 flex items-center">
-                  <span className="inline-block w-1 h-1 rounded-full bg-white/50 mr-2"></span>
-                  Parvati House
-                </a>
-              </li>
-            </ul>
+          {/* Boys PGs & Girls PGs Horizontal */}
+          <div className="flex flex-col md:flex-row md:space-x-4">
+            <div className="flex-1 mb-4 md:mb-0">
+              <h4 className="text-base font-semibold mb-2 uppercase tracking-wider text-white">Boys PGs</h4>
+              <ul className="space-y-1">
+                {boysPGs.map(pg => (
+                  <li key={pg.id} className="flex items-center">
+                    <span className="font-bold mr-2 text-xs text-white/80 min-w-[40px]">{pg.code}</span>
+                    <Link to={`/accommodations/${pg.id}`} className="text-white/90 hover:text-white font-medium transition-colors">
+                      {pg.name}
+                    </Link>
+                  </li>
+                ))}
+                {boysPGs.length === 0 && <li className="text-white/60 text-sm">No Boys PGs</li>}
+              </ul>
+            </div>
+            <div className="flex-1">
+              <h4 className="text-base font-semibold mb-2 uppercase tracking-wider text-white">Girls PGs</h4>
+              <ul className="space-y-1">
+                {girlsPGs.map(pg => (
+                  <li key={pg.id} className="flex items-center">
+                    <span className="font-bold mr-2 text-xs text-white/80 min-w-[40px]">{pg.code}</span>
+                    <Link to={`/accommodations/${pg.id}`} className="text-white/90 hover:text-white font-medium transition-colors">
+                      {pg.name}
+                    </Link>
+                  </li>
+                ))}
+                {girlsPGs.length === 0 && <li className="text-white/60 text-sm">No Girls PGs</li>}
+              </ul>
+            </div>
           </div>
           
           {/* Contact Information */}

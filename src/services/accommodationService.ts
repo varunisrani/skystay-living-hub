@@ -20,7 +20,7 @@ export async function getAccommodationsByGender(gender: 'boys' | 'girls' | 'mixe
     .from('accommodations')
     .select('*')
     .eq('pg_category', gender)
-    .order('name');
+    .order('code');
   
   if (error) {
     console.error('Error fetching accommodations by gender:', error);
