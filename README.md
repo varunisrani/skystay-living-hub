@@ -1,73 +1,60 @@
-# Welcome to your Lovable project
+# SkyStay Living Hub
 
-## Project info
+SkyStay Living Hub is a responsive accommodation catalogue for browsing boys', girls', and mixed paying-guest properties, room details, and galleries.
 
-**URL**: https://lovable.dev/projects/7231ff76-6b19-4e27-8068-9000ccfeb38a
+## Core features
 
-## How can I edit this code?
+- Landing, about, accommodation listing, gallery, and contact pages.
+- Separate boys' and girls' accommodation views.
+- Property detail pages with images and room types loaded from Supabase.
+- Responsive navigation and reusable shadcn/ui components.
+- Contact form demonstration with client-side validation and notifications.
 
-There are several ways of editing your application.
+## Technology stack
 
-**Use Lovable**
+- React 18, TypeScript, and Vite 5
+- React Router and TanStack React Query
+- Supabase JavaScript client
+- Tailwind CSS, shadcn/ui (Radix UI), and Lucide icons
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7231ff76-6b19-4e27-8068-9000ccfeb38a) and start prompting.
+## Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js 20 or newer
+- npm (a `package-lock.json` is included)
+- Access to the Supabase project and the expected accommodation tables
 
-**Use your preferred IDE**
+## Local setup
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/varunisrani/skystay-living-hub.git
+cd skystay-living-hub
+npm ci
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Other verified scripts are:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run build
+npm run preview
+npm run lint
+```
 
-**Use GitHub Codespaces**
+## Configuration
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The current generated Supabase client does not read environment variables; its project URL and publishable client key are embedded in `src/integrations/supabase/client.ts`. No environment variable names are defined by this repository.
 
-## What technologies are used for this project?
+## Project structure
 
-This project is built with:
+```text
+src/pages/                  Routed catalogue and information pages
+src/components/             Landing-page sections, navigation, footer, and UI primitives
+src/services/               Accommodation queries
+src/integrations/supabase/  Generated database client and types
+src/types/                  Accommodation domain models
+supabase/                   Supabase project configuration
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Status and limitations
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/7231ff76-6b19-4e27-8068-9000ccfeb38a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Accommodation content depends on an existing remote Supabase schema; database migrations are not included. The contact form currently logs and clears data in the browser but does not send it to a backend, and the map and social links are placeholders.
